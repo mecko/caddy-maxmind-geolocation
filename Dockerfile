@@ -1,6 +1,7 @@
 FROM caddy:builder AS builder
 RUN xcaddy build \
-    --with github.com/porech/caddy-maxmind-geolocation
+    --with github.com/porech/caddy-maxmind-geolocation \
+    --with github.com/zhangjiayin/caddy-geoip2
 
 FROM alpine:3.19 AS geodb
 RUN apk add --no-cache curl \
